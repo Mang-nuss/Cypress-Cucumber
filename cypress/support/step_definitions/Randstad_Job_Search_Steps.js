@@ -9,7 +9,7 @@ const url = "https://www.randstad.se";
 //     Cypress.clearAllSessions()
 // })
 
-Given(`I navigate to the Randstad homepage`, () => {
+Given('I navigate to the Randstad homepage', () => {
 
     //cy.clearAllSessionStorage()
 
@@ -24,7 +24,7 @@ Given(`I navigate to the Randstad homepage`, () => {
         
 }) 
 
-When(`I fill in a title`, () => {
+When('I fill in a specific title {string}', (title) => {
 
     cy
         .wait(5000)
@@ -33,25 +33,26 @@ When(`I fill in a title`, () => {
         .get('#search-keyword')
         //.wait(3000)
         //.invoke('removeAttr', 'target')
-        .type('testare')
+        .type(title)
 
 })
 
-When('I fill in a location', () => {
+When('I fill in a specific location {string}', (location) => {
 
     cy
         .get('#search-location')
         .wait(3000)
         //.invoke('removeAttr', 'target')
-        .type('skåne')
+        .type(location)
+        .type('{enter}')
 })
 
-When('I fill in a distance', () => {
+When('I select a specific distance {string}', (distance) => {
    
     cy
         .get('#distance')
         //.invoke('removeAttr', 'target')
-        .select('100 km')
+        .select(distance)
 })
 
 When('I press the Search button', () => {
@@ -61,7 +62,7 @@ When('I press the Search button', () => {
         .click()
 })
 
-Then('A result should be displayed', () => {
+Then('The message {string} should be displayed', (message) => {
 
 })
 
