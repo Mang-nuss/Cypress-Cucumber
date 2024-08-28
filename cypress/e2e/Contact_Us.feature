@@ -1,3 +1,4 @@
+@tutorial
 Feature: WebdriverUniversity - Contact Us page
 
     Scenario: Valid Contact Us form submission

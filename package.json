@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "job-search": "cypress run -s cypress/e2e/*.feature -e tags=\"@tabs\" --headed -b electron"
   },
   "author": "",
   "license": "ISC",
