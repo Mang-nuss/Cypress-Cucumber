@@ -1,20 +1,30 @@
 //<reference types="cypress">
-import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
+import { Given, When, Then, Before } from "@badeball/cypress-cucumber-preprocessor";
+import Base_PO from "../page-objects/Base_PO";
 //import { before } from "node:test";
 
 const url = "https://www.randstad.se";
+
+const basePage = new Base_PO();
 
 // before('handling sessions', () => {
 
 //     Cypress.clearAllSessions()
 // })
 
+Before(() => {
+
+    cy.log('executing the job search test scenario')
+})
+
 Given('I navigate to the homepage', () => {
 
     //cy.clearAllSessionStorage()
 
+    basePage.navigate("");
+    
     cy
-        .visit(url)
+        //.visit(url)
         .wait(3000)
         .get('#onetrust-accept-btn-handler')
         .click()
